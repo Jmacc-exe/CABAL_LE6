@@ -1,5 +1,24 @@
-<div *ngIf="post">
-  <h3><a href="/posts/{{ post.id }}">{{ post.title }}</a></h3>
-  <p>by {{ post.firstName }} {{ post.lastName }}; on {{ post.dateCreated }}</p>
-  <p>{{ post.body }}</p>
+<div class="article-container" *ngIf="post">
+  <a routerLink="/" class="back-link">&larr; Back to articles</a>
+
+  <article class="article-card">
+    <header class="article-header">
+      <h1 class="article-title">{{ post.title }}</h1>
+      <div class="author-meta">
+        <div class="author-info">
+          <div class="large-avatar">{{ post.firstName.charAt(0) }}</div>
+          <div>
+            <p class="author-name">{{ post.firstName }} {{ post.lastName }}</p>
+            <p class="post-timestamp">Published on {{ post.dateCreated | date:'longDate' }}</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="article-body">
+      <p>{{ post.body }}</p>
+    </div>
+  </article>
 </div>

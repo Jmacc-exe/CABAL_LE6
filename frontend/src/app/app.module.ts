@@ -9,6 +9,7 @@ import { ListPostsComponent } from './components/list-posts/list-posts.component
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
     ListPostsComponent,
     PostDetailComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,

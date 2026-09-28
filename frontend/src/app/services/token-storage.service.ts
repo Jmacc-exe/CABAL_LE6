@@ -27,4 +27,12 @@ export class TokenStorageService {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, strId);
   }
+
+  public getUser(): string | null {
+    return window.sessionStorage.getItem(USER_KEY);
+  }
+
+  public isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
 }

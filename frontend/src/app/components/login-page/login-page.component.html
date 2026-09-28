@@ -3,6 +3,10 @@
     <h1>Welcome Back</h1>
     <h3>Login Here</h3>
 
+    <div *ngIf="errorMessage" class="error-banner">
+  {{ errorMessage }}
+</div>
+
     <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>

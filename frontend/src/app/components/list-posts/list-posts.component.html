@@ -1,4 +1,24 @@
-<div *ngFor="let post of posts">
-  <h3><a href="/posts/{{ post.id }}">{{ post.title }}</a></h3>
-  <p>by {{ post.firstName }} {{ post.lastName }}; on {{ post.dateCreated }}</p>
+<section class="feed-header">
+  <h2>Latest Articles</h2>
+  <p>Read discussions and community posts from fellow developers.</p>
+</section>
+
+<div class="posts-grid">
+  <article class="post-card" *ngFor="let post of posts">
+    <div class="card-meta">
+      <div class="author-pill">
+        <span class="avatar-circle">{{ post.firstName.charAt(0) }}</span>
+        <span>{{ post.firstName }} {{ post.lastName }}</span>
+      </div>
+      <span class="post-date">{{ post.dateCreated | date:'mediumDate' }}</span>
+    </div>
+
+    <h3 class="post-title">
+      <a [routerLink]="['/posts', post.id]">{{ post.title }}</a>
+    </h3>
+
+    <div class="card-footer">
+      <a [routerLink]="['/posts', post.id]" class="read-more">Read article &rarr;</a>
+    </div>
+  </article>
 </div>

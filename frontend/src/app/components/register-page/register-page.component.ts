@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class RegisterPageComponent implements OnInit {
   form: any = {
-    username: null,
-    password: null,
-    firstName: null,
-    lastName: null
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: ''
   };
+  errorMessage: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -23,9 +24,13 @@ export class RegisterPageComponent implements OnInit {
     this.http.post('https://localhost:7015/api/Login/register', this.form, { responseType: 'text' })
       .subscribe({
         next: () => {
+          alert('Account created successfully! Redirecting to login...');
           this.router.navigate(['/login']);
         },
-        error: (err) => console.error(err)
+        error: (err) => {
+          console.error(err);
+          this.errorMessage = 'Registration failed. The username may already exist.';
+        }
       });
   }
 }

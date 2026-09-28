@@ -1,1 +1,26 @@
-<router-outlet></router-outlet>
+<header class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="logo">
+      <span class="logo-accent">Dev</span>Blog
+    </a>
+    <nav class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+
+      <!-- When NOT logged in -->
+      <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/register" routerLinkActive="active" class="btn-nav">Register</a>
+      </ng-container>
+
+      <!-- When logged in -->
+      <ng-container *ngIf="isLoggedIn">
+        <a routerLink="/add-post" routerLinkActive="active" class="btn-nav">+ New Post</a>
+        <button (click)="logout()" class="btn-logout">Logout</button>
+      </ng-container>
+    </nav>
+  </div>
+</header>
+
+<main class="main-wrapper">
+  <router-outlet></router-outlet>
+</main>
